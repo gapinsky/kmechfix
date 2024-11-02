@@ -10,10 +10,6 @@ export default {
 			colors: {
 				main: '#1658b6',
 			},
-			screens: {
-				'min-h-750': { raw: '(min-height: 750px)' },
-				'min-w-350': { raw: '(min-width: 350px)' },
-			},
 		},
 	},
 	plugins: [],
