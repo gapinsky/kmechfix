@@ -1,7 +1,41 @@
+import Nav from './components/Nav/Nav';
+import Hero from './components/Sections/Hero';
+
 function App() {
 	return (
 		<>
-			<p className='text-3xl text-red-600'>hej</p>
+			<Nav />
+			<Hero />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
 		</>
 	);
 }

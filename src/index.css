@@ -7,3 +7,10 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+header,
+body,
+footer {
+	max-width: 1920px;
+	margin: auto;
+}
