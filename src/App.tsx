@@ -5,6 +5,7 @@ import Services from './components/Services/Services';
 import Map from './components/Sections/Map';
 import Faq from './components/Faq/Faq';
 import Contact from './components/Contact/Contact';
+import Footer from './components/Sections/Footer';
 function App() {
 	return (
 		<>
@@ -15,36 +16,7 @@ function App() {
 			<Map />
 			<Faq />
 			<Contact />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
+			<Footer />
 		</>
 	);
 }
