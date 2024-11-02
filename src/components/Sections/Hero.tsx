@@ -2,15 +2,13 @@ import heroImg from '../../assets/img/hero.webp';
 const Hero = () => {
 	return (
 		<section className=' px-5 pt-16 flex flex-col justify-around items-center overflow-x-clip h-svh lg:px-20'>
-			{/* <div className='absolute w-[400px] h-[400px] left-1/2 top-0 -translate-x-1/2 -z-10 rounded-full bg-radial-center'></div> */}
-			{/* md:w-[1200px] md:h-[500px] lg:w-[3000px] lg:h-[1000px] */}
 			<div className=' flex flex-col justify-center  items-center  z-10 md:px-10 lg:order-1 lg:flex-row '>
 				<div className='relative flex justify-center items-center h-full w-full lg:order-2  '>
-					<div className='absolute bg-radial-center  blur-3xl rounded-full w-[300%] h-[120%]'></div>
+					<div className='absolute bg-radial-center  blur-3xl rounded-full w-[300%] h-[120%] '></div>
 					<img
 						src={heroImg}
 						alt='obrazek sekcji tytułowej, dom z systemem monitoringu'
-						className=' max-w-[70%]  z-10  md:max-w-[50%]   pointer-events-none lg:max-w-[100%] lg:w-full'
+						className=' max-w-[70%]  z-10   pointer-events-none lg:max-w-[100%] lg:w-full'
 					/>
 				</div>
 				<div className='z-10 px-2 lg:order-1'>
