@@ -2,7 +2,8 @@ import Form from './Form';
 
 const Contact = () => {
 	return (
-		<section className='mt-20 px-5 grid grid-cols-1 gap-10 justify-items-center items-center lg:grid-cols-3 lg:px-36'>
+		<section className='relative mt-20 px-5 grid grid-cols-1 gap-10 justify-items-center items-center overflow-x-clip lg:grid-cols-3 lg:px-36'>
+			<div className='absolute left-0 top-0 bg-radial-center  blur-3xl rounded-full w-[150%] h-[120%] -z-10'></div>
 			<div className=' lg:col-span-2'>
 				<div className='text-2xl font-semibold md:text-5xl lg:text-6xl'>
 					<p className='mb-2 md:mb-5 lg:mb-10'>Masz pytania?</p>

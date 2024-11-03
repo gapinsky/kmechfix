@@ -2,7 +2,7 @@ const Form = () => {
 	return (
 		<form
 			action=''
-			className='bg-slate-200 p-5 w-full flex flex-col rounded-md text-lg shadow-md shadow-slate-400 md:max-w-[70%] lg:max-w-none '>
+			className='bg-slate-200 p-5 w-full flex flex-col rounded-md text-lg shadow-lg shadow-slate-500 md:max-w-[70%] lg:max-w-none  '>
 			<div className='flex flex-col mb-4'>
 				<label htmlFor='' className='mb-1 text-xl'>
 					Imię i nazwisko:
