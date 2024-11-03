@@ -1,13 +1,34 @@
 import { TfiMenu } from 'react-icons/tfi';
 import { RiCloseLargeLine } from 'react-icons/ri';
 import { TbDeviceCctv } from 'react-icons/tb';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavList from './NavList';
 
 const Nav = () => {
 	const [isNavOpen, setIsNavOpen] = useState(false);
+	const [isScrolled, setIsScrolled] = useState(false);
+
+	const handleScroll = () => {
+		if (window.scrollY > 0) {
+			setIsScrolled(true);
+		} else {
+			setIsScrolled(false);
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll);
+		console.log(isScrolled);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
+
 	return (
-		<header className='px-3 py-2 fixed flex w-full justify-between items-center z-20  bg-transparent md:px-5 lg:px-20'>
+		<header
+			className={`px-3 py-2 fixed flex w-full justify-between  items-center z-20 md:px-5 lg:px-20 ${
+				isScrolled && 'bg-white shadow-md '
+			} `}>
 			<span className='inline-flex text-3xl items-center tracking-tighter lg:text-4xl'>
 				<TbDeviceCctv />
 				<h1 className='uppercase font-bold '>kmtechfix</h1>
