@@ -25,9 +25,12 @@ const Form = () => {
 				<label htmlFor='' className='mb-1 text-xl'>
 					Wiadomość:
 				</label>
-				<textarea className='p-1 rounded-md shadow-md min-h-28' rows={5} />
+				<textarea
+					className='p-1 rounded-md shadow-md min-h-28 resize-none'
+					rows={6}
+				/>
 			</div>
-			<button className='bg-blue-500 self-end text-white font-semibold rounded-md shadow-md px-5 py-1'>
+			<button className='bg-blue-500 self-end text-white font-semibold rounded-md shadow-sm shadow-slate-400 px-5 py-1 hover:bg-blue-400'>
 				Wyślij
 			</button>
 		</form>

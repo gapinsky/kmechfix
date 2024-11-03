@@ -1,7 +1,9 @@
 import heroImg from '../../assets/img/hero.webp';
 const Hero = () => {
 	return (
-		<section className=' px-5 pt-16 flex flex-col justify-around items-center overflow-x-clip h-svh lg:px-20'>
+		<section
+			className=' px-5 pt-16 flex flex-col justify-around items-center overflow-x-clip h-svh lg:px-20'
+			id='start'>
 			<div className=' flex flex-col justify-center  items-center  z-10 md:px-10 lg:order-1 lg:flex-row '>
 				<div className='relative flex justify-center items-center h-full w-full lg:order-2  '>
 					<div className='absolute bg-radial-center  blur-3xl rounded-full w-[300%] h-[120%] '></div>
@@ -21,12 +23,12 @@ const Hero = () => {
 						Urządzenia dopasowane do Twoich potrzeb. Profesjonalny montaż i
 						konfiguracja. Pozwól nam zadbać o Twoje bezpieczeństwo.
 					</p>
-					<button className=' bg-blue-500 text-white rounded-lg text-2xl px-8 py-3 hidden lg:block'>
+					<button className=' bg-blue-500 text-white rounded-lg text-2xl px-8 py-3 hidden shadow-md shadow-slate-400 lg:block hover:bg-blue-400'>
 						Poznaj nas
 					</button>
 				</div>
 			</div>
-			<button className=' z-10  py-2 px-6 mx-auto text-xl  bg-blue-500 text-white rounded-md md:text-2xl md:px-8 md:py-3  lg:hidden'>
+			<button className=' z-10  py-2 px-6 mx-auto text-xl  bg-blue-500 text-white rounded-md shadow-md shadow-slate-400  md:text-2xl md:px-8 md:py-3  lg:hidden hover:bg-blue-400'>
 				Poznaj nas
 			</button>
 		</section>

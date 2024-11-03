@@ -5,7 +5,7 @@ const Accordion = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<div className='flex flex-col h-fit w-[90svw] md:w-[80svw] lg:w-[35svw] border-2 border-slate-100 rounded-lg'>
+		<div className='flex flex-col h-fit w-[90svw] md:w-[80svw] lg:w-[35svw] border-2 border-slate-200 shadow-md rounded-lg'>
 			<button
 				onClick={() => setIsOpen(!isOpen)}
 				className='inline-flex items-center justify-between p-3   text-lg md:text-2xl lg:text-3xl'>

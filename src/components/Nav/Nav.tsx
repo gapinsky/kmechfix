@@ -29,10 +29,12 @@ const Nav = () => {
 			className={`px-3 py-2 fixed flex w-full justify-between  items-center z-20 md:px-5 lg:px-20 ${
 				isScrolled && 'bg-white shadow-md '
 			} `}>
-			<span className='inline-flex text-3xl items-center tracking-tighter lg:text-4xl'>
+			<a
+				href='start'
+				className='inline-flex text-3xl items-center tracking-tighter lg:text-4xl'>
 				<TbDeviceCctv />
 				<h1 className='uppercase font-bold '>kmtechfix</h1>
-			</span>
+			</a>
 			<nav>
 				<button
 					onClick={() => setIsNavOpen(!isNavOpen)}

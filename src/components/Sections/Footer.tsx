@@ -4,7 +4,7 @@ const Footer = () => {
 	const year = new Date().getFullYear();
 
 	return (
-		<footer className=' mt-20 py-3 text-lg grid grid-cols-1 gap-10  px-5 md:grid-cols-2 lg:grid-cols-3 '>
+		<footer className=' py-3 text-lg grid grid-cols-1 gap-10  px-5 md:grid-cols-2 lg:grid-cols-3 '>
 			<div className=' lg:place-self-start '>
 				<p className='mb-2'>NIP: 623-325-35-32</p>
 				<p className='mb-2'>REGON: 231-425-647</p>
