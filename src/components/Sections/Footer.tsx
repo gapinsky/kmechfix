@@ -13,7 +13,6 @@ const Footer = () => {
 			<div className='flex flex-col justify-center items-center md:order-3 md:col-span-2 lg:col-span-1 lg:-order-none '>
 				<p>KMTECHFIX &copy; {`${year}`}</p>
 				<p className='mb-2'>Wszystkie prawa zastrzeżone</p>
-				<p className='text-sm'>Designed & created: @gapinsky</p>
 			</div>
 			<div className='max-w-64  md:place-self-end lg:place-self-end  '>
 				<p className='flex justify-start items-center mb-2'>

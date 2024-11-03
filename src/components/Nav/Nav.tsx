@@ -18,11 +18,11 @@ const Nav = () => {
 
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
-		console.log(isScrolled);
+
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
-	}, []);
+	}, [isScrolled]);
 
 	const handleNav = () => {
 		setIsNavOpen(false);
