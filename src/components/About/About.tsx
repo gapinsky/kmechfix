@@ -3,7 +3,7 @@ import aboutImg from '../../assets/img/about.webp';
 const About = () => {
 	return (
 		<section
-			className='py-10  flex flex-col overflow-x-clip  lg:px-20 '
+			className='lg:py-20  flex flex-col overflow-x-clip  lg:px-20 '
 			id='about'>
 			<CounterUpContainer />
 			<div className=' flex flex-col items-center lg:flex-row'>

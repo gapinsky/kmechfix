@@ -3,7 +3,7 @@ import ServicesCardGroup from './ServicesCardGroup';
 const Services = () => {
 	return (
 		<section
-			className='relative  flex flex-col justify-end items-center px-5 md:px-10  lg:px-20  '
+			className='relative  flex flex-col justify-end items-center px-5 md:px-10  lg:px-20 lg:py-10 '
 			id='services'>
 			<div className='absolute bg-radial-center  blur-3xl rounded-full w-[100%] h-[80%] -z-10'></div>
 			<h2 className='text-center text-3xl py-3 mb-3  md:text-5xl '>

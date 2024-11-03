@@ -23,14 +23,18 @@ const Hero = () => {
 						Urządzenia dopasowane do Twoich potrzeb. Profesjonalny montaż i
 						konfiguracja. Pozwól nam zadbać o Twoje bezpieczeństwo.
 					</p>
-					<button className=' bg-blue-500 text-white rounded-lg text-2xl px-8 py-3 hidden shadow-md shadow-slate-400 lg:block hover:bg-blue-400'>
+					<a
+						href='#about'
+						className='w-fit bg-blue-500 text-white rounded-lg text-2xl px-8 py-3 hidden shadow-md shadow-slate-400 lg:block hover:bg-blue-400'>
 						Poznaj nas
-					</button>
+					</a>
 				</div>
 			</div>
-			<button className=' z-10  py-2 px-6 mx-auto text-xl  bg-blue-500 text-white rounded-md shadow-md shadow-slate-400  md:text-2xl md:px-8 md:py-3  lg:hidden hover:bg-blue-400'>
+			<a
+				href='#about'
+				className='w-fit z-10  py-2 px-6 mx-auto text-xl  bg-blue-500 text-white rounded-md shadow-md shadow-slate-400  md:text-2xl md:px-8 md:py-3  lg:hidden hover:bg-blue-400'>
 				Poznaj nas
-			</button>
+			</a>
 		</section>
 	);
 };

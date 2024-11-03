@@ -24,11 +24,15 @@ const Nav = () => {
 		};
 	}, []);
 
+	const handleNav = () => {
+		setIsNavOpen(false);
+	};
+
 	return (
 		<header
 			className={`px-3 py-2 fixed flex w-full justify-between  items-center z-20 md:px-5 lg:px-20 ${
 				isScrolled && 'bg-white shadow-md '
-			} `}>
+			}  ${isNavOpen && 'bg-white shadow-md'}`}>
 			<a
 				href='start'
 				className='inline-flex text-3xl items-center tracking-tighter lg:text-4xl'>
@@ -45,9 +49,11 @@ const Nav = () => {
 						<TfiMenu className='text-2xl' />
 					)}
 				</button>
-				<NavList customStyles=' hidden md:flex' />
+				<NavList handleNav={handleNav} customStyles=' hidden md:flex' />
 			</nav>
-			{isNavOpen && <NavList customStyles='bg-white md:hidden' />}
+			{isNavOpen && (
+				<NavList customStyles='bg-white md:hidden' handleNav={handleNav} />
+			)}
 		</header>
 	);
 };
