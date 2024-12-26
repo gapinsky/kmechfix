@@ -37,7 +37,7 @@ const Nav = () => {
 				href='start'
 				className='inline-flex text-3xl items-center tracking-tighter lg:text-4xl'>
 				<TbDeviceCctv />
-				<h1 className='uppercase font-bold '>kmtechfix</h1>
+				<h1 className=' font-bold  tracking-tighter uppercase'>kmtech<span className='text-blue-500'>fix</span></h1>
 			</a>
 			<nav>
 				<button
@@ -52,7 +52,9 @@ const Nav = () => {
 				<NavList handleNav={handleNav} customStyles=' hidden md:flex' />
 			</nav>
 			{isNavOpen && (
+
 				<NavList customStyles='bg-white md:hidden' handleNav={handleNav} />
+				
 			)}
 		</header>
 	);

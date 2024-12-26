@@ -1,40 +1,23 @@
-import { useEffect, useState } from 'react';
+import {motion} from 'motion/react';
+import { useInView} from 'framer-motion';
+import { useRef } from 'react';
 
 const Map = () => {
-	const [width, setWidth] = useState(window.innerWidth);
+const ref = useRef(null)
+const isInView = useInView(ref, {once: true, amount: 'some'})
 
-	useEffect(() => {
-		const handleResize = () => {
-			setWidth(window.innerWidth);
-		};
-		window.addEventListener('resize', handleResize);
+return (
+		<section className='flex flex-col items-center'>   		
+		<motion.div ref={ref} initial={{y: "10vh", opacity: 0}} animate={{y: isInView ? 0 : "10vh", opacity: isInView ? 1 : 0}}  transition={{type: "ease-in", duration: 0.5}}>
 
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
-
-	const isAboveMd = width > 760;
-
-	return (
-		<section className='mt-10 flex flex-col items-center md:px-5 md:items-start md:flex-row  lg:px-36'>
-			<div className='md:ml-5 px-5 mb-5 md:px-0 lg:ml-10  md:order-2 md:w-[35%] '>
-				<p className='text-3xl mb-3 lg:text-5xl'>Obszar świadczenia usług</p>
-				<p className='leading-relaxed lg:text-xl lg:leading-relaxed'>
-					{isAboveMd ? 'Obok ' : 'Poniżej '}znajduje się mapa z zaznaczonym
-					obszarem, w którym realizujemy nasze usługi. Jeśli Twoja lokalizacja
-					znajduje się w zaznaczonym regionie, zapraszamy do kontaktu. W
-					przypadku pytań dotyczących innych miejscowości, skontaktuj się z
+				<h3 className='text-center text-3xl py-3 mb-3  md:text-5xl md:mb-5 '>Obszar świadczenia usług</h3>
+				<p className='text-center mb-3 md:mb-10 md:text-xl lg:text-2xl'>
+					Jeśli Twoja lokalizacja
+					nie znajduje się w wyznaczonym rejeonie, skontaktuj się z
 					nami, aby omówić możliwości współpracy.
 				</p>
-			</div>
-			<div className='rounded-md overflow-hidden w-full h-96 shadow-md  md:order-1 md:w-[65%]'>
-				<iframe
-					src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d300235.1909607306!2d15.796626067109184!3d53.99234805163276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xac02feca73c266a5%3A0x685f318770d62a04!2sKMTechFix!5e0!3m2!1spl!2spl!4v1730555165157!5m2!1spl!2spl'
-					width='100%'
-					height='100%'
-					loading='lazy'></iframe>
-			</div>
+		</motion.div>
+					<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1e4ipvRTUB1jS35LpqhAPvQyNzSRBcM8&ehbc=2E312F&noprof=1" width="100%" height="100%" loading='lazy'  className=" min-h-[400px] xl:min-h-[600px] xl:max-w-[80%]"></iframe>
 		</section>
 	);
 };

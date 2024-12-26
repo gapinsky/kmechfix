@@ -1,42 +1,42 @@
-import CounterUpContainer from './CounterUpContainer';
 import aboutImg from '../../assets/img/about.webp';
+import {motion} from 'motion/react';
+import { useInView} from 'framer-motion';
+import { useRef } from 'react';
 const About = () => {
+	const ref = useRef(null)
+	const isInView = useInView(ref, {once: true, amount: 'some'})
+
 	return (
-		<section
-			className='pb-10 lg:py-20  flex flex-col overflow-x-clip  lg:px-20 '
-			id='about'>
-			<CounterUpContainer />
-			<div className=' flex flex-col items-center lg:flex-row'>
-				<div className='relative flex justify-center items-center py-5 md:max-w-[70%] lg:flex-1'>
-					<div className='absolute w-[200%] h-[100%] bg-radial-center  blur-3xl rounded-full z-0 lg:h-[120%]'></div>
-					<img src={aboutImg} alt='' className='z-10' />
-				</div>
-				<div className='z-10 px-5  grid grid-cols-1 gap-5 md:px-10  md:grid-cols-2  lg:flex-1 '>
-					<h2 className='lg:py-5 text-center text-3xl  md:col-span-2 md:text-5xl lg:text-start '>
-						Poznaj naszą firmę
-					</h2>
-					<p className='text-xl    lg:p-0 lg:col-span-2'>
-						KMtechFix to firma z wieloletnim doświadczeniem w montażu,
-						konfiguracji i naprawie urządzeń elektrycznych. Kompleksowo
-						obsługujemy duże firmy jak i mniejsze przedsiębiorstwa.
-					</p>
-					<p className=' text-xl  lg:col-span-2 lg:text-2xl'>
-						Specjalizujemy się w serwisie:
-						<ul className='list-disc list-inside font-semibold'>
-							<li>monitoringów,</li>
-							<li>systemów alarmowych,</li>
-							<li>domofonów,</li>
-							<li>komputerów,</li>
-							<li>smartfonów i tabletów,</li>
-							<li>sieci komputerowych.</li>
-						</ul>
-					</p>
-					<p className=' md:col-span-2 text-xl lg:p-0'>
-						Dla nas nie ma rzeczy niemożliwych. Zaufaj profesjonalistom i zadbaj
-						o bezpieczeństwo Twoje i Twojego sprzętu.
-					</p>
-				</div>
+		<section className='relative min-h-screen flex flex-col items-center justify-evenly overflow-x-clip xl:flex xl:flex-row xl:items-stretch xl:p-10' id="about">
+			
+			<div className='relative  flex items-center'>
+				<motion.div initial={{scale: 0, opacity: 0}} animate={{scale: isInView ? 0.9 : 0, opacity: isInView ? 1 : 0 }} transition={{duration: 0.5}} className='absolute w-[250%] -left-[70%] h-full bg-radial-center  blur-3xl rounded-full -z-10 '></motion.div>
+				<motion.img ref={ref} initial={{scale: 0, opacity: 0}} animate={{scale: isInView ? 0.9 : 0, opacity: isInView ? 1 : 0 }} transition={{duration: 0.5, delay: 0.3}} src={aboutImg} alt="serwisant naprawiający urządzenia" className='max-w-80 md:max-w-xl lg:max-w-3xl xl:max-w-4xl'/>
 			</div>
+			<div className=' px-5 md:px-10 flex flex-col justify-evenly xl:flex-col'>
+				<motion.div initial={{y: "10vh", opacity: 0}} animate={{y: isInView ? 0 : "10vh", opacity: isInView ? 1 : 0}}  transition={{type: "ease-in", duration: 0.5}} className='mb-4 md:mb-12 '>
+				<h2 className='text-2xl   mb-2 md:text-3xl md:mb-2 lg:text-5xl'>Poznaj naszą firmę</h2>
+				<p className='md:text-xl lg:text-3xl'>
+					KMtechFix to firma z wieloletnim doświadczeniem w montażu,
+					konfiguracji i naprawie urządzeń elektrycznych. Kompleksowo
+					obsługujemy duże firmy jak i mniejsze przedsiębiorstwa.
+					Dla nas nie ma rzeczy niemożliwych. Zaufaj profesjonalistom i zadbaj
+					o bezpieczeństwo Twoje i Twojego sprzętu.
+				</p>
+				</motion.div>
+				<motion.div initial={{y: "10vh", opacity: 0}} animate={{y: isInView ? 0 : "10vh", opacity: isInView ? 1 : 0}} transition={{type: 'easeIn', duration: 0.5, delay: 0.3}} className=' '>
+				<h3 className='text-2xl  mb-2 md:text-3xl md:mb-2 lg:text-5xl '>Specjalizujemy się w serwisie:</h3>
+				<ul className='text-base list-disc list-inside md:text-xl lg:text-3xl'>
+					<li>monitoringów,</li>
+					<li>systemów alarmowych,</li>
+					<li>domofonów,</li>
+					<li>komputerów,</li>
+					<li>smartfonów i tabletów,</li>
+					<li>sieci komputerowych.</li>
+				</ul>
+				</motion.div>
+			</div>
+			
 		</section>
 	);
 };

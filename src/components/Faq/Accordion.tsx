@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { GoTriangleDown, GoDotFill } from 'react-icons/go';
-
+import { GoTriangleDown } from 'react-icons/go';
+import { BsDot } from "react-icons/bs";
+import {motion} from 'motion/react'
 interface Props {
 	title: string;
 	description: string;
@@ -10,20 +11,28 @@ const Accordion = ({ title, description }: Props) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<div className='flex flex-col h-fit w-[90svw] md:w-[80svw] lg:w-[35svw] border-2 border-slate-200 shadow-md rounded-lg'>
+		<motion.div initial={{y: "10vh", opacity: 0}} whileInView={{y: 0, opacity: 1}} viewport={{once: true}} transition={{type: "ease-out", duration: 0.6, repeat: 0, delay: 0.3}} className='overflow-hidden flex flex-col h-fit md:w-[80svw] xl:w-[35svw] max-w-[600px]  border-2 border-slate-200 shadow-md rounded-lg'>
 			<button
 				onClick={() => setIsOpen(!isOpen)}
-				className='inline-flex items-center justify-between p-3   text-lg md:text-2xl '>
-				<span className='inline-flex items-center'>
-					<GoDotFill className='mr-3 text-2xl' />
+				className='flex text-start justify-between items-center p-3'>
+				<span className='flex items-center text-base font-semibold  md:text-xl'>
+					<div>
+					<BsDot className='text-5xl' />
+					</div>
 					{title}
 				</span>
-				<GoTriangleDown className={`text-4xl   ${isOpen && 'rotate-180'} `} />
+				<motion.div initial={{rotate: 0}} animate={{rotate: isOpen ? 180 : 0}} transition={{type: "ease-out", duration: 0.4}}>
+					<GoTriangleDown className={`text-3xl`} />
+				</motion.div>
 			</button>
 			{isOpen && (
-				<div className=' shadow-md  p-3 lg:text-xl'>{description}</div>
+				<motion.div initial={{height: 0}} animate={{ height: isOpen ? 'auto' : 0}} transition={{duration: 0.3, type: "ease-in"}} className='shadow-md  p-3 md:text-xl'>
+					<p>
+					{description}
+					</p>
+					</motion.div>
 			)}
-		</div>
+		</motion.div>
 	);
 };
 
