@@ -34,7 +34,7 @@ const Nav = () => {
 				isScrolled && 'bg-white shadow-md '
 			}  ${isNavOpen && 'bg-white shadow-md'}`}>
 			<a
-				href='start'
+				href='#start'
 				className='inline-flex text-3xl items-center tracking-tighter lg:text-4xl'>
 				<TbDeviceCctv />
 				<h1 className=' font-bold  tracking-tighter uppercase'>kmtech<span className='text-blue-500'>fix</span></h1>
