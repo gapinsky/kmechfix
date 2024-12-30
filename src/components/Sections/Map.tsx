@@ -11,9 +11,9 @@ return (
 		<motion.div ref={ref} initial={{y: "10vh", opacity: 0}} animate={{y: isInView ? 0 : "10vh", opacity: isInView ? 1 : 0}}  transition={{type: "ease-in", duration: 0.5}}>
 
 				<h3 className='text-center text-3xl py-3 mb-3  md:text-5xl md:mb-5 '>Obszar świadczenia usług</h3>
-				<p className='text-center mb-3 md:mb-10 md:text-xl lg:text-2xl'>
+				<p className='text-center mb-3 px-2 md:mb-10 md:text-xl lg:text-2xl'>
 					Jeśli Twoja lokalizacja
-					nie znajduje się w wyznaczonym rejeonie, skontaktuj się z
+					nie znajduje się w wyznaczonym obszarze, skontaktuj się z
 					nami, aby omówić możliwości współpracy.
 				</p>
 		</motion.div>

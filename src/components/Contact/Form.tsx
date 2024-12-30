@@ -1,6 +1,15 @@
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {motion} from 'motion/react';
+import { FieldValues, useForm } from 'react-hook-form';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import  FormModal  from './FormModal';
+import { CgSpinner } from "react-icons/cg";
+
+const serviceId = 'service_akbwmec';
+const templateId = 'template_ha39na1';
+const publicKey = 'nqraCZQfCSlIi3D4Q';
 
 const schema = z.object({
 	name: z
@@ -28,22 +37,62 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-import { FieldValues, useForm } from 'react-hook-form';
 
 const Form = () => {
+	const [isSubmitted, setIsSubmitted] = useState(false)
+	const [disabled, setDisabled] = useState(false)
 	const {
 		register,
 		handleSubmit,
+		reset,
 		formState: { errors },
+		formState,
 	} = useForm<FormData>({
 		resolver: zodResolver(schema),
 	});
 
-	const onSubmit = (data: FieldValues) => console.log(data.name);
-	
+	const onSubmit = async (data: FieldValues) => {
+		setDisabled(true);
+		// data.preventDefault();
+		const emailData = {
+		service_id: serviceId,
+		template_id: templateId,
+		user_id: publicKey,
+		 template_params: {
+			name: data.name,
+			email: data.email,
+			phone: data.number,
+			message: data.message
+			}
+		};
+		
+		console.log(emailData);
+		try {
+			const response = await axios.post('https://api.emailjs.com/api/v1.0/email/send', emailData);
+			console.log(response.data);
+			} catch (error) {
+				console.log(error);
+			}
+	}
+
+
+	useEffect(() => {
+		if(formState.isSubmitSuccessful){
+			setIsSubmitted((prev) => !prev );
+			reset({name: '', number: '', email: '', message: ''})
+		}
+		return () => {
+			setTimeout(() => {
+				setIsSubmitted(false);
+				setDisabled(false);
+			}, 4000)
+		}
+	}, [formState, reset, isSubmitted])
 
 	
+
 	return (
+		<>
 		<motion.form
 		initial={{x: "10vw", opacity: 0}} whileInView={{x: 0, opacity: 1}} viewport={{once: true}} transition={{type: "ease-out", duration: 0.6, repeat: 0, delay: 0.5}}
 			onSubmit={handleSubmit(onSubmit)}
@@ -59,7 +108,7 @@ const Form = () => {
 					className='p-1 rounded-md border-2 border-slate-300 focus:outline-blue-500 focus:bg-blue-50'
 				/>
 				{errors.name && (
-					<p className='absolute bottom-0 text-red-500 text-sm'>
+					<p className='absolute bottom-0 text-red-500 text-xs'>
 						{errors.name.message}
 					</p>
 				)}
@@ -79,7 +128,7 @@ const Form = () => {
 					className='p-1 rounded-md border-2 border-slate-300 focus:outline-blue-500 focus:bg-blue-50'
 				/>
 				{errors.number && (
-					<p className='absolute bottom-0 text-red-500 text-sm'>
+					<p className='absolute bottom-0 text-red-500 text-xs'>
 						{errors.number.message}
 					</p>
 				)}
@@ -93,9 +142,9 @@ const Form = () => {
 					type='text'
 					id='email'
 					className='p-1 rounded-md border-2 border-slate-300 focus:outline-blue-500 focus:bg-blue-50'
-				/>
+					/>
 				{errors.email && (
-					<p className='absolute bottom-0 text-red-500 text-sm'>
+					<p className='absolute bottom-0 text-red-500 text-xs'>
 						{errors.email.message}
 					</p>
 				)}
@@ -109,22 +158,30 @@ const Form = () => {
 					id='message'
 					className='p-1 rounded-md border-2 border-slate-300 min-h-28 resize-none focus:outline-blue-500 focus:bg-blue-50'
 					rows={6}
-				/>
+					/>
 				{errors.message && (
-					<p className='absolute bottom-0 text-red-500 text-sm'>
+					<p className='absolute bottom-5 text-red-500 text-xs md:bottom-0'>
 						{errors.message.message}
 					</p>
 				)}
 			</div>
 			<motion.button
+				disabled={disabled}
 				whileHover={{scale: 0.95}}
 				whileTap={{scale: 0.85}}
 				transition={{duration: 0.2, type: "spring"}}
 				type='submit'
-				className='bg-blue-500 self-end text-white font-semibold rounded-md shadow-sm shadow-slate-400 px-10 py-2 hover:bg-blue-400 lg:text-lg xl:text-xl'>
-				Wyślij
+				className={`bg-blue-500 self-end text-white font-semibold rounded-md shadow-sm shadow-slate-400 w-[140px] h-[40px] hover:bg-blue-400 lg:text-lg xl:text-xl ${disabled && "cursor-not-allowed"} `}>
+				
+				{disabled ? 
+					<motion.p initial={{rotate: 0}} animate={{rotate: 360}} transition={{duration: 2, repeat: Infinity, ease: 'linear'}}>
+						<CgSpinner className='text-2xl mx-auto'/> 
+					</motion.p>
+					: "Wyślij" }
 			</motion.button>
 		</motion.form>
+		<FormModal isSubmitted={isSubmitted} />
+	</>
 	);
 };
 

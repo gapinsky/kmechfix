@@ -25,7 +25,7 @@ const Contact = () => {
 					skontaktuj się z nami już teraz!
 				</motion.p>
 			</div>
-			<Form />
+			<Form/>
 		</section>
 	);
 };

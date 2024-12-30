@@ -30,7 +30,7 @@ const Nav = () => {
 
 	return (
 		<header
-			className={`px-3 py-2 fixed flex w-full justify-between  items-center z-20 md:px-5 lg:px-20 ${
+			className={`px-3 py-2 fixed flex w-full justify-between  items-center z-20 md:px-5 lg:px-20  ${
 				isScrolled && 'bg-white shadow-md '
 			}  ${isNavOpen && 'bg-white shadow-md'}`}>
 			<a
@@ -51,11 +51,12 @@ const Nav = () => {
 				</button>
 				<NavList handleNav={handleNav} customStyles=' hidden md:flex' />
 			</nav>
-			{isNavOpen && (
+			
 
-				<NavList customStyles='bg-white md:hidden' handleNav={handleNav} />
-				
+			{isNavOpen && (
+				<NavList customStyles='bg-white md:hidden' handleNav={handleNav} />	
 			)}
+			
 		</header>
 	);
 };
